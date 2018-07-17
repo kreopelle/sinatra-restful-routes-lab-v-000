@@ -42,7 +42,7 @@ class ApplicationController < Sinatra::Base
   end
 
   put "/recipes/:id" do
-    redirect "/recipes/#{@recipe.id}"
+    redirect "/recipes/#{params[:id]}"
   end
 
   delete "/recipes/:id/delete" do
