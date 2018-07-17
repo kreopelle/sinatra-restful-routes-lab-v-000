@@ -8,15 +8,19 @@ class ApplicationController < Sinatra::Base
     erb :new
   end
 
-  get '/' do
-    redirect to '/recipes'
-  end
+  # get '/' do
+  #   redirect to '/recipes'
+  # end
 
   get '/recipes' do
     @recipes = Recipe.all
     erb :index
   end
 
+  get '/recipes/:id/edit' do
+    @recipe = Recipe.find_by_id(params[:id])
+    erb :edit
+  end
 
 
   post '/recipes' do
@@ -29,10 +33,7 @@ class ApplicationController < Sinatra::Base
     erb :show
   end
 
-  get '/recipes/:id/edit' do
-    @recipe = Recipe.find_by_id(params[:id])
-    erb :edit
-  end
+
 
   patch "/recipes/:id" do
     @recipe = Recipe.find_by_id(params[:id])
