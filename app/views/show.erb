@@ -4,6 +4,7 @@
 <p><%= @recipe.ingredients %></p>
 
 <form action="/recipe/<%=@recipe.id%>/delete" method="post">
-</form> 
+  <input type="hidden" id="hidden" name="_method" value="delete">
+</form>
 
 <h4><a href="/recipes">Return to My Recipes</h4>
