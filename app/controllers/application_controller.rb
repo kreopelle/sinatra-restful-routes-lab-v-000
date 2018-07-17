@@ -10,10 +10,6 @@ class ApplicationController < Sinatra::Base
     erb :new
   end
 
-  # get '/' do
-  #   redirect to '/recipes'
-  # end
-
   get '/recipes' do
     @recipes = Recipe.all
     erb :index
@@ -45,7 +41,7 @@ class ApplicationController < Sinatra::Base
 
   delete "/recipes/:id/delete" do
     @recipe = Recipe.find_by_id(params[:id])
-    @recipe.destroy
+    @recipe.delete
     redirect to '/recipes'
   end
 
